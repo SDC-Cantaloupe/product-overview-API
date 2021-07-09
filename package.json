@@ -20,7 +20,6 @@
     "jest": "^27.0.6"
   },
   "dependencies": {
-    "eslint": "^7.30.0",
     "eslint-config-hackreactor": "github:reactorcore/eslint-config-hackreactor"
   }
 }
