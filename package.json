@@ -1,0 +1,26 @@
+{
+  "name": "product-overview-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SDC-Cantaloupe/product-overview-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SDC-Cantaloupe/product-overview-API/issues"
+  },
+  "homepage": "https://github.com/SDC-Cantaloupe/product-overview-API#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "eslint": "^7.30.0",
+    "eslint-config-hackreactor": "github:reactorcore/eslint-config-hackreactor"
+  }
+}
