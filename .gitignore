@@ -4,3 +4,7 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# ETL files
+import.sql
+import.mongoDB
