@@ -10,7 +10,7 @@ client.query('SELECT NOW()', (err, res) => {
   if (err) {
     console.log('ERROR: ' + err.message);
   } else {
-    console.log('CONNECTED!');
+    console.log('PostgreSQL database connected');
   }
   client.end();
 });
