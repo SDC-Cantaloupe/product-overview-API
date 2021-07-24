@@ -2,6 +2,9 @@
 # Dependency directories
 node_modules/
 
+# Test coverage report
+coverage/
+
 # dotenv environment variables file
 .env
 
