@@ -263,7 +263,10 @@ const styleInfo = JSON.stringify({
   ]
 });
 
+const relatedProducts = JSON.stringify([2, 3, 8, 7]);
+
 module.exports = {
   productInfo,
-  styleInfo
+  styleInfo,
+  relatedProducts
 };

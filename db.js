@@ -4,9 +4,7 @@ const client = new Client({
   database: 'sdc',
 });
 
-client.connect();
-
-client.query('SELECT NOW()', (err, res) => {
+client.connect((err, res) => {
   if (err) {
     console.log('ERROR: ' + err.message);
   } else {
@@ -14,7 +12,7 @@ client.query('SELECT NOW()', (err, res) => {
   }
 });
 
-var getCurrentProductInfo = (productID, callback) => {
+const getProductInfo = (productID, callback) => {
   client.query(`SELECT * FROM products WHERE id=${productID}`, (err, res) => {
     if (err) {
       callback(err);
@@ -32,7 +30,7 @@ var getCurrentProductInfo = (productID, callback) => {
   });
 };
 
-var getCurrentProductStyles = (productID, callback) => {
+const getProductStyles = (productID, callback) => {
   client.query(`SELECT id as style_id, name, original_price, sale_price, default_style as "default?" FROM styles WHERE product_id=${productID}`, (err, res) => {
     if (err) {
       callback(err);
@@ -77,7 +75,23 @@ var getCurrentProductStyles = (productID, callback) => {
   });
 };
 
+const getRelatedProducts = (productID, callback) => {
+  client.query(`SELECT related_product_id FROM related WHERE current_product_id=${productID}`, (err, res) => {
+    if (err) {
+      callback(err);
+    } else {
+      var relatedProducts = [];
+      res.rows.forEach((element) => {
+        relatedProducts.push(Object.values(element)[0]);
+      });
+      callback(null, relatedProducts);
+    }
+  });
+};
+
 module.exports = {
-  getCurrentProductInfo,
-  getCurrentProductStyles
+  client,
+  getProductInfo,
+  getProductStyles,
+  getRelatedProducts
 };
