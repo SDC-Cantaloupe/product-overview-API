@@ -11,3 +11,9 @@ coverage/
 # ETL files
 import.sql
 import.mongoDB
+
+# run k6 tests command
+runk6tests
+
+# mongoDB (secondary DB) script
+db.mongo.js

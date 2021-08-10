@@ -14,6 +14,9 @@ CREATE TABLE features (
   value VARCHAR(50)
 );
 
+CREATE INDEX features_product_id_index
+ON features (product_id);
+
 CREATE TABLE styles (
   id SERIAL PRIMARY KEY,
   product_id INTEGER,
@@ -23,12 +26,18 @@ CREATE TABLE styles (
   default_style BOOLEAN
 );
 
+CREATE INDEX styles_product_id_index
+ON styles (product_id);
+
 CREATE TABLE photos (
   id SERIAL PRIMARY KEY,
   style_id INTEGER,
   url TEXT,
   thumbnail_url TEXT
 );
+
+CREATE INDEX photos_style_id_index
+ON photos (style_id);
 
 CREATE TABLE skus (
   id SERIAL PRIMARY KEY,
@@ -37,11 +46,17 @@ CREATE TABLE skus (
   quantity INTEGER
 );
 
+CREATE INDEX skus_style_id_index
+ON skus (style_id);
+
 CREATE TABLE related (
   id SERIAL PRIMARY KEY,
   current_product_id INTEGER,
   related_product_id INTEGER
 );
+
+CREATE INDEX related_current_product_id_index
+ON related (current_product_id);
 
 CREATE TABLE cart (
   id SERIAL PRIMARY KEY,
