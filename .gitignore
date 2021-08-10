@@ -16,4 +16,4 @@ import.mongoDB
 runk6tests
 
 # mongoDB (secondary DB) script
-db.mongo.js
+db.mongoDB.js
