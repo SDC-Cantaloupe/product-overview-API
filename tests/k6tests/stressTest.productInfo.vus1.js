@@ -1,4 +1,5 @@
 import http from 'k6/http';
+import { check } from 'k6';
 
 export let options = {
   'vus': 1,
@@ -11,5 +12,9 @@ export let options = {
 
 export default function () {
   let resProductInfo = http.get('http://localhost:3001/products/1/');
+  check(resProductInfo, {
+    'getProductInfo: status 200': (r) => r.status === 200,
+    'getProductInfo: correct response': (r) => r.body.length === 342
+  });
   //console.log('Response time for product info was ' + String(resProductInfo.timings.duration) + ' ms');
 }
