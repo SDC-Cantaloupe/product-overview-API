@@ -13,15 +13,6 @@ afterAll(() => {
 
 describe('end-to-end test', () => {
 
-  // it('test get request to the endpoint /products', (done) => {
-  //   request.get('/products')
-  //     .expect(200)
-  //     .expect((res) => {
-  //       expect(res.text).toBe('get request to /products');
-  //     })
-  //     .end(done);
-  // });
-
   it('test get request to the endpoint /products/:product_id', (done) => {
     request.get('/products/1')
       .expect(200)
@@ -49,24 +40,6 @@ describe('end-to-end test', () => {
       })
       .end(done);
   });
-
-  // it('test get request to the endpoint /cart', (done) => {
-  //   request.get('/cart')
-  //     .expect(200)
-  //     .expect((res) => {
-  //       expect(res.text).toBe('get request for /cart');
-  //     })
-  //     .end(done);
-  // });
-
-  // it('test post request to the endpoint /cart', (done) => {
-  //   request.post('/cart')
-  //     .expect(201)
-  //     .expect((res) => {
-  //       expect(res.text).toBe('post request for /cart');
-  //     })
-  //     .end(done);
-  // });
 
 });
 
