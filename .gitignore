@@ -2,9 +2,18 @@
 # Dependency directories
 node_modules/
 
+# Test coverage report
+coverage/
+
 # dotenv environment variables file
 .env
 
 # ETL files
 import.sql
 import.mongoDB
+
+# run k6 tests command
+runk6tests
+
+# mongoDB (secondary DB) script
+db.mongoDB.js
