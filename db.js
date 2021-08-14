@@ -1,5 +1,5 @@
 const { Client } = require('pg');
-require('dotenv').config({ path: process.cwd() + '/.env' });
+require('dotenv').config();
 
 console.log(process.cwd() + '/.env' );
 
