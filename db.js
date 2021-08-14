@@ -1,14 +1,17 @@
 const { Client } = require('pg');
 
 const client = new Client({
+  user: 'postgres',
+  host: 'the-name-for-my-postgres-container-within-the-docker-compose-yml-file',
   database: 'sdc',
+  port: 5432,
 });
 
 client.connect((err, res) => {
   if (err) {
     console.log('ERROR: ' + err.message);
   } else {
-    console.log('PostgreSQL database connected');
+    console.log('PostgreSQL database connected!');
   }
 });
 

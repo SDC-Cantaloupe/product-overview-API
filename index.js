@@ -6,7 +6,7 @@ const port = 3001;
 app.use('/', router);
 
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
+  console.log(`Listening on port ${port}!`);
 });
 
 module.exports = {
