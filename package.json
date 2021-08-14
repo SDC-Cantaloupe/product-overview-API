@@ -27,6 +27,7 @@
     "eslint-config-hackreactor": "github:reactorcore/eslint-config-hackreactor",
     "express": "^4.17.1",
     "mongoose": "^5.13.3",
+    "nodemon": "^2.0.12",
     "pg": "^8.6.0"
   }
 }
