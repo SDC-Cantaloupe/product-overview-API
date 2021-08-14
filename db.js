@@ -2,7 +2,7 @@ const { Client } = require('pg');
 
 const client = new Client({
   user: 'postgres',
-  host: 'the-name-for-my-postgres-container-within-the-docker-compose-yml-file',
+  host: 'postgres',
   database: 'sdc',
   port: 5432,
 });
