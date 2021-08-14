@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
     "eslint-config-hackreactor": "github:reactorcore/eslint-config-hackreactor",
     "express": "^4.17.1",
     "mongoose": "^5.13.3",

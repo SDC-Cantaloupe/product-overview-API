@@ -8,7 +8,7 @@ coverage/
 .vscode/
 
 # environment file
-.env/
+.env
 
 # ETL files
 import.sql
