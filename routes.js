@@ -34,9 +34,9 @@ router.get('/products/:product_id/related', (req, res) => {
 });
 
 // verification for loader.io
-router.get('/' + process.env.LOADERIO_TOCKEN), (req, res) => {
-  res.send(process.env.LOADERIO_TOCKEN);
-};
+router.get('/' + process.env.LOADERIO_TOKEN, (req, res) => {
+  res.send(process.env.LOADERIO_TOKEN);
+});
 
 
 module.exports = router;
