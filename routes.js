@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const db = require('./db');
+require('dotenv').config();
 
 
 router.get('/products/:product_id', (req, res) => {
@@ -31,6 +32,11 @@ router.get('/products/:product_id/related', (req, res) => {
     }
   });
 });
+
+// verification for loader.io
+router.get('/' + process.env.LOADERIO_TOCKEN), (req, res) => {
+  res.send(process.env.LOADERIO_TOCKEN);
+};
 
 
 module.exports = router;
