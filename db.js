@@ -1,14 +1,12 @@
 const { Client } = require('pg');
 require('dotenv').config();
 
-console.log(process.cwd() + '/.env' );
-
 const client = new Client({
-  user: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
-  host: process.env.POSTGRES_HOST,
-  port: 5432,
+  user: process.env.POSTGRES_USER || '',
+  password: process.env.POSTGRES_PASSWORD || '',
+  database: process.env.POSTGRES_DB || '',
+  host: process.env.POSTGRES_HOST || '',
+  port: process.env.PORTGRES_PORT || ''
 });
 
 client.connect((err, res) => {
@@ -23,7 +21,7 @@ const getProductInfo = (productID, callback) => {
   client.query(`SELECT * FROM products WHERE id=${productID}`, (err, res) => {
     if (err) {
       callback(err);
-    } else {
+    } else if (res.rows.length > 0) {
       var productInfo = res.rows[0];
       client.query(`SELECT feature, value FROM features WHERE product_id=${productID}`, (err, res) => {
         if (err) {
@@ -33,6 +31,8 @@ const getProductInfo = (productID, callback) => {
           callback(null, productInfo);
         }
       });
+    } else {
+      callback(null, null);
     }
   });
 };
@@ -41,7 +41,7 @@ const getProductStyles = (productID, callback) => {
   client.query(`SELECT id as style_id, name, original_price, sale_price, default_style as "default?" FROM styles WHERE product_id=${productID}`, (err, res) => {
     if (err) {
       callback(err);
-    } else {
+    } else if (res.rows.length > 0) {
       var styleInfo = { 'product_id': productID };
       var styles = res.rows;
       var styleRequests = [];
@@ -78,6 +78,8 @@ const getProductStyles = (productID, callback) => {
         .catch((err) => {
           callback(err);
         });
+    } else {
+      callback(null, null);
     }
   });
 };
@@ -86,12 +88,14 @@ const getRelatedProducts = (productID, callback) => {
   client.query(`SELECT related_product_id FROM related WHERE current_product_id=${productID}`, (err, res) => {
     if (err) {
       callback(err);
-    } else {
+    } else if (res.rows.length > 0) {
       var relatedProducts = [];
       res.rows.forEach((element) => {
         relatedProducts.push(Object.values(element)[0]);
       });
       callback(null, relatedProducts);
+    } else {
+      callback(null, null);
     }
   });
 };
