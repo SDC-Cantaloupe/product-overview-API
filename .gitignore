@@ -7,9 +7,6 @@ coverage/
 # Docker vscode
 .vscode/
 
-# Redis
-redis-stable/
-
 # environment file
 .env
 
